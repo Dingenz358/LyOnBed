@@ -18,61 +18,47 @@
 <body>
 <div class="progress" aria-hidden="true"><span></span></div>
 
-<div class="topbar"><div class="wrap"><span>Gefertigt in Deutschland</span><span>Lieferung in 3 Tagen</span><span>15 Jahre Garantie gegen Federkernbruch</span></div></div>
-
 <header class="header" id="top">
   <div class="wrap header__inner">
-    <nav class="nav" aria-label="Hauptnavigation">
+    <a class="brand" href="#start" aria-label="LYONBED Startseite">
+      <img src="logo/lyonbed-mark.svg" alt="" width="40" height="40"><span>LYONBED</span>
+    </a>
+    <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav"><span></span><span></span><span class="sr-only">Menü</span></button>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
       <a href="#bett">Boxspringbett</a>
       <a href="#matratzen">Matratzen</a>
       <a href="#vergleich">Vergleich</a>
       <a href="#hotels">Hotels</a>
-    </nav>
-    <a class="brand" href="#start" aria-label="LYONBED Startseite">
-      <img src="logo/lyonbed-mark.svg" alt="" width="34" height="34"><span>LYONBED</span>
-    </a>
-    <div class="header__right">
       <a href="#service">Service</a>
       <a class="btn" href="#kontakt">Beratung anfragen</a>
-    </div>
-    <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span class="sr-only">Menü</span></button>
+    </nav>
   </div>
 </header>
-<nav class="mnav" id="mnav" aria-label="Mobile Navigation">
-  <a href="#bett">Boxspringbett</a>
-  <a href="#matratzen">Matratzen</a>
-  <a href="#vergleich">Vergleich</a>
-  <a href="#hotels">Hotels</a>
-  <a href="#service">Service</a>
-  <a class="btn" href="#kontakt">Beratung anfragen</a>
-</nav>
 
 <main>
   <!-- Hero -->
-  <section class="hero" id="start" aria-labelledby="hero-title">
-    <div class="wrap hero__head">
-      <p class="overline fade-in">Das Hotelbett für Ihr Zuhause</p>
-      <h1 class="hero__title" id="hero-title">
-        <span class="line"><span>Schlafen wie im</span></span>
-        <span class="line"><span><em>Fünf-Sterne-Hotel</em></span></span>
-      </h1>
-      <div class="hero__sub">
-        <p class="fade-in">Das LYONBED Boxspringbett aus Massivholz. Gefertigt in Deutschland, geschätzt von Hoteliers und in drei Tagen bei Ihnen.</p>
+  <section class="hero grain" id="start" aria-labelledby="hero-title">
+    <div class="hero__media" data-parallax="0.18">
+      <picture>
+        <source srcset="web/lyonbed-banner-suite-16x9.webp" type="image/webp">
+        <img src="web/lyonbed-banner-suite-16x9.jpg" alt="Fünf-Sterne-Suite mit LYONBED Boxspringbett, weißer Hotelbettwäsche und Messinglampe im warmen Nachmittagslicht" width="1920" height="1072" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="wrap">
+      <div class="hero__copy">
+        <p class="overline fade-in">Das Hotelbett für Ihr Zuhause</p>
+        <h1 class="h-xl" id="hero-title">
+          <span class="line"><span>Schlafen wie im</span></span>
+          <span class="line"><span><em class="accent-word">Fünf-Sterne-Hotel</em></span></span>
+        </h1>
+        <p class="lead fade-in">Das LYONBED Boxspringbett aus Massivholz: gefertigt in Deutschland, geschätzt von Hoteliers, in 3&nbsp;Tagen bei Ihnen.</p>
         <div class="hero__actions fade-in d2">
           <a class="btn" href="#bett">Kollektion entdecken <span class="arrow" aria-hidden="true">→</span></a>
           <a class="link" href="#vergleich">Was es besser macht</a>
         </div>
       </div>
     </div>
-    <div class="hero__frame grain" id="hero-frame">
-      <div class="hero__media" data-parallax="0.12">
-        <picture>
-          <source srcset="web/lyonbed-banner-suite-16x9.webp" type="image/webp">
-          <img src="web/lyonbed-banner-suite-16x9.jpg" alt="Fünf-Sterne-Suite mit LYONBED Boxspringbett, weißer Hotelbettwäsche und Messinglampe im warmen Nachmittagslicht" width="1920" height="1072" fetchpriority="high">
-        </picture>
-      </div>
-      <span class="hero__caption" aria-hidden="true">LYONBED Boxspringbett · Suite</span>
-    </div>
+    <a class="scroll-cue" href="#intro"><span>Scrollen</span><i></i></a>
   </section>
 
   <!-- Intro + figures -->
@@ -225,18 +211,15 @@
 
   <!-- Mood -->
   <section class="mood grain" aria-label="Das Hotelerlebnis">
-    <div class="mood__img" data-parallax="0.18">
+    <div class="mood__img" data-parallax="0.22">
       <picture>
         <source srcset="web/lyonbed-hands-linen-16x9.webp" type="image/webp">
         <img src="web/lyonbed-hands-linen-16x9.jpg" alt="Hände streichen weiße Satin-Bettwäsche im goldenen Morgenlicht glatt" width="1920" height="1072" loading="lazy">
       </picture>
     </div>
     <div class="wrap">
-      <div class="mood__panel" data-reveal>
-        <p class="overline">Das Hotelerlebnis</p>
-        <blockquote>Das Bett aus Ihrem <em>Lieblingshotel.</em></blockquote>
-        <p>Dieselbe Verarbeitung, die Fünf-Sterne-Häuser jeden Tag beansprucht, jetzt in Ihrem Schlafzimmer.</p>
-      </div>
+      <blockquote data-reveal>Das Bett aus Ihrem <em>Lieblingshotel.</em></blockquote>
+      <p data-reveal>Dieselbe Verarbeitung, die Fünf-Sterne-Häuser jeden Tag beansprucht, jetzt in Ihrem Schlafzimmer.</p>
     </div>
   </section>
 

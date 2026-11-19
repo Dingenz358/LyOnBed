@@ -8,7 +8,7 @@
 
   /* Header, progress bar, current section */
   var header = $('.header'), bar = $('.progress span'), lastY = 0;
-  var navLinks = $$('.nav a, .header__right a:not(.btn)');
+  var navLinks = $$('.nav a:not(.btn)');
   var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
   function onScroll() {
     var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
@@ -39,7 +39,7 @@
     toggle.setAttribute('aria-expanded', String(open));
   }
   toggle.addEventListener('click', function () { setMenu(!document.body.classList.contains('menu-open')); });
-  $$('#mnav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  $$('#nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
   /* Parallax */
