@@ -8,7 +8,7 @@
 
   /* Header, progress bar, current section */
   var header = $('.header'), bar = $('.progress span'), lastY = 0;
-  var navLinks = $$('.nav a[href^="#"]:not(.btn)');
+  var navLinks = $$('.nav a, .header__right a:not(.btn)');
   var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
   function onScroll() {
     var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
@@ -20,6 +20,16 @@
     var mid = window.innerHeight * 0.35, cur = -1;
     sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < mid) cur = i; });
     navLinks.forEach(function (a, i) { a.classList.toggle('is-current', i === cur); });
+    heroFrame();
+  }
+
+  /* Hero photo opens from an inset frame to full width as the page scrolls */
+  var frame = $('#hero-frame');
+  function heroFrame() {
+    if (!frame || reduce || window.innerWidth <= 760) return;
+    var r = frame.getBoundingClientRect(), vh = window.innerHeight;
+    var p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.9) - 0.35));
+    frame.style.setProperty('--inset', (6 * (1 - p)).toFixed(2) + '%');
   }
 
   /* Mobile menu */
@@ -29,7 +39,7 @@
     toggle.setAttribute('aria-expanded', String(open));
   }
   toggle.addEventListener('click', function () { setMenu(!document.body.classList.contains('menu-open')); });
-  $$('#nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  $$('#mnav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
   /* Parallax */
@@ -38,7 +48,7 @@
     if (reduce) return;
     var narrow = window.innerWidth <= 760;
     plx.forEach(function (el) {
-      if (narrow && el.classList.contains('hero__media')) { el.style.transform = ''; return; }
+      if (narrow && el.closest('.hero, .mood')) { el.style.transform = ''; return; }
       var host = el.parentElement, r = host.getBoundingClientRect();
       if (r.bottom < 0 || r.top > window.innerHeight) return;
       var speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
